@@ -31,19 +31,31 @@
                                   class="product-thumbs-track ps-slider"
                                   :dots="false"
                                   :nav="false">
-                                    <div class="pt active" data-imgbigurl="img/mickey1.jpg">
+                                    <div 
+                                      class="pt" 
+                                      @click="changeImage(thumbs[0])" 
+                                      :class="thumbs[0] == gambar_default ? 'active' : '' ">
                                         <img src="img/mickey1.jpg" alt="" />
                                     </div>
 
-                                    <div class="pt" data-imgbigurl="img/mickey2.jpg">
+                                    <div 
+                                      class="pt"  
+                                      @click="changeImage(thumbs[1])"
+                                      :class="thumbs[1] == gambar_default ? 'active' : '' ">
                                         <img src="img/mickey2.jpg" alt="" />
                                     </div>
 
-                                    <div class="pt" data-imgbigurl="img/mickey3.jpg">
+                                    <div 
+                                      class="pt"  
+                                      @click="changeImage(thumbs[2])"
+                                      :class="thumbs[2] == gambar_default ? 'active' : '' ">
                                         <img src="img/mickey3.jpg" alt="" />
                                     </div>
 
-                                    <div class="pt" data-imgbigurl="img/mickey4.jpg">
+                                    <div 
+                                      class="pt"  
+                                      @click="changeImage(thumbs[3])"
+                                      :class="thumbs[3] == gambar_default ? 'active' : '' ">
                                         <img src="img/mickey4.jpg" alt="" />
                                     </div>
                                 </carousel>
@@ -100,7 +112,18 @@
     },
     data() {
       return {
-        gambar_default: "img/mickey1.jpg"
+        gambar_default: "img/mickey1.jpg",
+        thumbs: [
+          "img/mickey2.jpg",
+          "img/mickey3.jpg",
+          "img/mickey4.jpg",
+        ]
+      }
+    },
+
+    methods: {
+      changeImage(urlImage) {
+        this.gambar_default = urlImage;
       }
     }
 }
