@@ -91,6 +91,7 @@
       carousel
       
     },
+    
     data() {
       return {
         id: this.$route.params.id,
